@@ -1,0 +1,709 @@
+@import "normalize";
+@import "mixin";
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.wrapper {
+    width: 60%;
+    margin: 0 auto;
+}
+
+/* HEADER */
+
+.header {
+    height: 100vh;
+    background-image: url(../img/hero-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: cover;
+    @media screen and (max-width: 1024px) {
+        background: url('../img/adaptive__graphic/hero-bg--desktop.jpg') no-repeat;
+    }
+    @media screen and (max-width: 768px) {
+        background: url('../img/adaptive__graphic/hero-bg--leptop.jpg') no-repeat;
+    }
+    @media screen and (max-width: 576px) {
+        background: url('../img/adaptive__graphic/hero-bg--mobile.jpg') no-repeat;
+    }
+
+    &__top {
+        position: fixed;
+        width: 60%;
+        height: 42px;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+        padding-top: 25px;
+        display: flex;
+        justify-content: space-between;
+        background: linear-gradient(rgba(255, 255, 255, 0.6) 0%,rgba(255, 255, 255, 0));
+        .logo__svg {
+            height: 42px;
+            width: 42px;
+            margin-left: 40px;
+        }
+        .nav {
+            list-style-type: none;
+            &__burger {
+                display: none;
+            }
+            &__menu {
+                display: flex;
+                list-style-type: none;
+                height: 42px;
+                align-items: center;
+                .menu {
+                    &__item {
+                        margin-right: 40px;
+                    }
+                
+                    &__link {
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        font-size: 16px;
+                        transition: color .5s;
+                        color:  black;
+                        text-decoration: none;
+                    }
+                
+                    &__link:hover {
+                        color: red;
+                    }
+                }
+            }
+        }
+    }
+
+    &__content {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -45%);
+        color: #fff;
+        .content {
+            &__logo {
+                display: block;
+                margin: 0 auto 9vh;
+                width: 70px;
+                height: 70px;
+            }
+        
+            &__title {
+                text-align: center;
+                font-size: 54px;
+                font-weight: 700;
+                text-transform: uppercase;
+                margin-bottom: 5vh;
+                letter-spacing: 0.16em;
+            }
+        
+            &__text {
+                text-align: center;
+                font-size: 15px;
+                line-height: 29px;
+                text-transform: uppercase;
+                font-weight: 400;
+                letter-spacing: 0.06em;
+                margin-bottom: 20vh;
+            }
+        
+            &__scroll {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+
+// BURGER MENU
+
+.nav__burger--img {
+    display: none;
+}
+
+/* ABOUT US */
+
+.about {
+    padding: 160px 0;
+
+    &__content {
+        height: 310px;
+        border: 2px solid #3c3c3c;
+        padding-top: 75px;
+        position: relative;
+        color: #3c3c3c;
+    }
+
+    &__title {
+        @include title ();
+        background-color: #fff;
+        padding: 0 20%;
+        white-space: nowrap;
+    }
+
+    &__text {
+        text-align: center;
+        font-size: 16px;
+        line-height: 24px;
+        padding: 0 15px;
+    }
+
+    &__text--one {
+        margin-bottom: 35px;
+        padding: 0 15px;
+    }
+}
+
+/* SERVICES */
+
+.services {
+    height: 490px;
+    background-image: url(../img/services.jpg);
+    padding-top: 130px;
+    @include background__img ();
+    @media screen and (max-width: 1024px) {
+        background: url('../img/adaptive__graphic/services--desktop.jpg') no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    @media screen and (max-width: 768px) {
+        background: url('../img/adaptive__graphic/services--laptop.jpg') no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    @media screen and (max-width: 576px) {
+        background: url('../img/adaptive__graphic/services--mobile.jpg') no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    &__content {
+        height: 250px;
+        border-bottom: 2px solid #ffffff;
+        border-left: 2px solid #ffffff;
+        border-right: 2px solid #ffffff;
+        padding-top: 80px;
+        position: relative;
+        color: #ffffff;
+    }
+
+    &__content::before,
+    &__content::after {
+        content: "";
+        height: 2px;
+        width: 20%;
+        background-color: #ffffff;
+        position: absolute;
+        top: 0;
+    }
+
+    &__content::after {
+        left: 100%;
+        transform: translateX(-100%);
+    }
+
+    &__title {
+        @include title ();
+        padding: 0 20%;
+        white-space: nowrap;
+    }
+
+    &__text {
+        text-align: center;
+        font-size: 16px;
+        line-height: 25.89px;
+        padding: 0 15px;
+    }
+}
+
+
+
+/* WHAT WE DO */
+
+.what-we-do {
+    height: 1400px;
+    color: #3c3c3c;
+    position: relative;
+    padding: 110px 0;
+
+    &__content {
+        height: 1180px;
+        padding-top: 120px;
+        border: 2px solid #3c3c3c;
+        @include content__center ();
+    }
+
+    &__title {
+        @include title ();
+        background-color: #ffffff;
+        padding: 0 20%;
+        white-space: nowrap;
+    }
+
+    &__icon--1 {
+        display: block;
+        margin: 0 auto;
+        width: 80px;
+        height: 84px;
+        margin-bottom: 40px;
+    }
+
+    &__icon--2 {
+        display: block;
+        margin: 0 auto;
+        width: 80px;
+        height: 75px;
+        margin-bottom: 40px;
+    }
+
+    &__icon--3 {
+        display: block;
+        margin: 0 auto;
+        width: 80px;
+        height: 90px;
+        margin-bottom: 40px;
+    }
+
+    &__title--2 {
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        font-size: 20px;
+        margin-bottom: 40px;
+    }
+
+    &__text {
+        font-size: 14px;
+        line-height: 25.89px;
+        font-weight: 300;
+        text-align: center;
+        margin-bottom: 110px;
+        padding: 0 15px;
+    }
+}
+
+
+
+/* CARDS */
+
+.cards {
+    padding: 0 15px;
+
+    &__wrap--top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    &__wrap--bottom {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__title {
+        text-transform: uppercase;
+        font-size: 24px;
+        color: #fff;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        margin-top: 15vh;
+        margin-left: 45px;
+    }
+
+
+
+    &__top:nth-child(1) {
+        background-image: url(../img/card1.jpg);
+        width: 28%;
+        height: 24vh;
+        cursor: pointer;
+        @include background__img ();
+        @media screen and (max-width: 1024px) {
+            background: url('../img/adaptive__graphic/1--desktop.jpg') no-repeat;
+        }
+        @media screen and (max-width: 768px) {
+            background: url('../img/adaptive__graphic/1--laptop.jpg') no-repeat;
+        }
+        @media screen and (max-width: 576px) {
+            background: url('../img/adaptive__graphic/1--mobile.jpg') no-repeat;
+        }
+
+    }
+
+    &__top:nth-child(2) {
+        background-image: url(../img/card2.jpg);
+        width: 42%;
+        height: 24vh;
+        cursor: pointer;
+        @include background__img ();
+        @media screen and (max-width: 1024px) {
+            background: url('../img/adaptive__graphic/2--desktop.jpg') no-repeat;
+        }
+        @media screen and (max-width: 768px) {
+            background: url('../img/adaptive__graphic/2--laptop.jpg') no-repeat;
+        }
+        @media screen and (max-width: 576px) {
+            background: url('../img/adaptive__graphic/2--mobile.jpg') no-repeat;
+        }
+    }
+
+    &__top:nth-child(3) {
+        background-image: url(../img/card3.jpg);
+        width: 28%;
+        height: 24vh;
+        cursor: pointer;
+        @include background__img ();
+        @media screen and (max-width: 1024px) {
+            background: url('../img/adaptive__graphic/3--desktop.jpg') no-repeat;
+        }
+        @media screen and (max-width: 768px) {
+            background: url('../img/adaptive__graphic/3--laptop.jpg') no-repeat;
+        }
+        @media screen and (max-width: 576px) {
+            background: url('../img/adaptive__graphic/3--mobile.jpg') no-repeat;
+        }
+    }
+
+    &__bottom:nth-child(1) {
+        background-image: url(../img/card4.jpg);
+        width: 28%;
+        height: 24vh;
+        cursor: pointer;
+        @include background__img ();
+        @media screen and (max-width: 1024px) {
+            background: url('../img/adaptive__graphic/4--desktop.jpg') no-repeat;
+        }
+        @media screen and (max-width: 768px) {
+            background: url('../img/adaptive__graphic/4--laptop.jpg') no-repeat;
+        }
+        @media screen and (max-width: 576px) {
+            background: url('../img/adaptive__graphic/4--mobile.jpg') no-repeat;
+        }
+    }
+
+    &__bottom:nth-child(2) {
+        background-image: url(../img/card5.jpg);
+        width: 42%;
+        height: 24vh;
+        cursor: pointer;
+        @include background__img ();
+        @media screen and (max-width: 1024px) {
+            background: url('../img/adaptive__graphic/5--desktop.jpg') no-repeat;
+        }
+        @media screen and (max-width: 768px) {
+            background: url('../img/adaptive__graphic/5--laptop.jpg') no-repeat;
+        }
+        @media screen and (max-width: 576px) {
+            background: url('../img/adaptive__graphic/5--mobile.jpg') no-repeat;
+        }
+    }
+
+    &__bottom:nth-child(3) {
+        background-image: url(../img/card6.jpg);
+        width: 28%;
+        height: 24vh;
+        cursor: pointer;
+        @include background__img ();
+        @media screen and (max-width: 1024px) {
+            background: url('../img/adaptive__graphic/6--desktop.jpg') no-repeat;
+        }
+        @media screen and (max-width: 768px) {
+            background: url('../img/adaptive__graphic/6--laptop.jpg') no-repeat;
+        }
+        @media screen and (max-width: 576px) {
+            background: url('../img/adaptive__graphic/6--mobile.jpg') no-repeat;
+        }
+    }
+}
+
+
+
+/* CONTACT */
+
+.contact {
+    height: 600px;
+    position: relative;
+
+    &__content {
+        padding-top: 75px;
+        height: 290px;
+        border: 2px solid #3c3c3c;
+        padding-top: 75px;
+        position: relative;
+        color: #3c3c3c;
+        @include content__center ();
+    }
+
+    &__title {
+        @include title ();
+        background-color: #fff;
+        padding: 0 20%;
+        white-space: nowrap;
+    }
+
+    &__text {
+        text-align: center;
+        font-size: 16px;
+        line-height: 25.89px;
+        margin-bottom: 45px;
+        padding: 0 15px;
+    }
+
+    &__btn {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        width: 70%;
+        height: 50px;
+        background-color: #3c3c3c;
+        text-transform: uppercase;
+        font-size: 16px;
+        letter-spacing: 0.16em;
+        color: #fff;
+        cursor: pointer;
+        transition: color .7s;
+    }
+
+    &__btn:hover {
+        color: black;
+        background-color: #fff;
+    }
+
+
+    /* CONTACT FOOTER */
+
+    &__footer {
+        height: 165px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+    }
+
+    &__footer--icon {
+        height: 40px;
+        width: 35px;
+        margin-right: 35px;
+    }
+
+    &__footer--text {
+        font-size: 14px;
+        color: #3c3c3c;
+    }
+}
+
+// ADAPTIVE
+
+@media screen and (max-width: 1199.98px) and (min-width: 992px) {
+
+}
+
+@media (max-width: 991.98px) and (min-width: 768px) {
+    .logo__svg {
+        display: none;
+    }
+    .menu {
+        width: 23%;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        right: -150%;
+        transition: top 0.7s;
+        z-index: 0;
+
+        &__item {
+            text-align: center;
+            border-bottom: 1px solid #c8d8d6;
+            padding: 10px;
+        }
+    }
+
+    .nav__burger--img {
+        display: inline-block;
+        width: 42px;
+        height: 3px;
+        position: relative;
+        top: 0%;
+        right: -50%;
+        background-color: black;
+        vertical-align: middle;
+        margin-right: 40px;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            top: 9px;
+            display: inline-block;
+            width: 100%;
+            height: 3px;
+            background-color: black;
+        }
+
+        &::before {
+            top: -9px;
+        }
+    }
+
+    .nav__burger:checked ~ .menu {
+        top: 50px;
+        right: 0;
+    }
+}
+
+
+@media (max-width: 767.98px) and (min-width: 320px) {
+    
+    // HEADER
+    
+    
+.header {
+    height: 100vh;
+    background-image: url(../img/hero-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: cover;
+
+    &__top {
+        position: fixed;
+        width: 60%;
+        height: 42px;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+        padding-top: 25px;
+        display: flex;
+        justify-content: flex-end;
+        background: linear-gradient(rgba(255, 255, 255, 0.6) 0%,rgba(255, 255, 255, 0));
+    }
+
+    .logo__svg {
+        display: none;
+    }
+    .menu {
+        width: 23%;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        right: -150%;
+        transition: top 0.7s;
+        z-index: 0;
+
+        &__item {
+            text-align: center;
+            border-bottom: 1px solid #c8d8d6;
+            padding: 10px;
+        }
+    }
+
+    .nav__burger--img {
+        display: inline-block;
+        width: 42px;
+        height: 3px;
+        position: relative;
+        top: 0%;
+        right: 0%;
+        background-color: black;
+        vertical-align: middle;
+        margin-right: 40px;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            top: 9px;
+            display: inline-block;
+            width: 100%;
+            height: 3px;
+            background-color: black;
+        }
+
+        &::before {
+            top: -9px;
+        }
+    }
+
+    .nav__burger:checked ~ .menu {
+        top: 50px;
+        right: 0;
+    }
+}
+    // CARDS
+
+    .cards {
+        padding: 0 15px;
+    
+        &__wrap--top {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+    
+        &__wrap--bottom {
+            display: flex;
+            flex-direction: column;
+        }
+        
+    &__top:nth-child(1) {
+        background-image: url(../img/card1.jpg);
+        width: 100%;
+        height: 24vh;
+        cursor: pointer;
+        margin-bottom: 10px;
+        @include background__img ();
+    }
+
+    &__top:nth-child(2) {
+        background-image: url(../img/card2.jpg);
+        width: 100%;
+        height: 24vh;
+        cursor: pointer;
+        margin-bottom: 10px;
+        @include background__img ();
+    }
+
+    &__top:nth-child(3) {
+        background-image: url(../img/card3.jpg);
+        width: 100%;
+        height: 24vh;
+        cursor: pointer;
+        @include background__img ();
+    }
+
+    &__bottom:nth-child(1) {
+        background-image: url(../img/card4.jpg);
+        width: 100%;
+        height: 24vh;
+        cursor: pointer;
+        margin-bottom: 10px;
+        @include background__img ();
+    }
+
+    &__bottom:nth-child(2) {
+        background-image: url(../img/card5.jpg);
+        width: 100%;
+        height: 24vh;
+        cursor: pointer;
+        margin-bottom: 10px;
+        @include background__img ();
+    }
+
+    &__bottom:nth-child(3) {
+        background-image: url(../img/card6.jpg);
+        width: 100%;
+        height: 24vh;
+        cursor: pointer;
+        @include background__img ();
+    }
+}
+}
